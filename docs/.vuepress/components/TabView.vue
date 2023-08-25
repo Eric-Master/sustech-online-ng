@@ -35,7 +35,16 @@ export default {
     ATabs: Tabs,
     ATabPane: Tabs.TabPane,
     AConfigProvider: ConfigProvider
-  }
+  },
+   mounted() {
+    const navWrapElement = this.$el.querySelector('.ant-tabs-nav-wrap');
+    const touchstartListeners = element.getEventListeners('touchstart');
+    if (touchstartListeners) {
+      touchstartListeners.forEach((listener) => {
+        element.removeEventListener('touchstart', listener.listener);
+      });
+    }
+  },
 };
 </script>
 
